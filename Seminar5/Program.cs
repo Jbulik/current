@@ -69,10 +69,9 @@ int[] CreateRandomArray(int size, int min, int max)
         int Max = array[0];
         for (int i = 0; i < array.Length; i++)
         {
-           if (array[i] < MinNum & array[i] > Max) 
+           if (array[i] < MinNum) 
            MinNum = array[i];
-           Max = array[i];
-           
+                      
         }
 
         for (int i = 0; i < array.Length; i++)
