@@ -64,7 +64,5 @@
 #         break     
 #     else:
 #         polin=str(int(polin) + int(polin2))   
-# print(str3)
-# print(str2)
-# print(str1)
 
+print("*\n" + "*"*2\n)

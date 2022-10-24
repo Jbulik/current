@@ -17,23 +17,23 @@
 # - x=2; y=4-> 1
 # - x=-34; y=-30 -> 3
 
-x = int(input('Введите кординаты Х и нажмите enter: '))
-y = int(input('Введите кординаты Y и нажмите enter: '))
+# x = int(input('Введите кординаты Х и нажмите enter: '))
+# y = int(input('Введите кординаты Y и нажмите enter: '))
 
-if x != 0 and x != 0:
-    if  x>0 and y>0:
-        print(f"2-ая четверть") 
+# if x != 0 and x != 0:
+#     if  x>0 and y>0:
+#         print(f"2-ая четверть") 
     
-    elif x>0 and y<0:
-        print(f"4-ая четверть") 
-    elif x<0 and y>0:
-        print(f"1-ая четверть") 
+#     elif x>0 and y<0:
+#         print(f"4-ая четверть") 
+#     elif x<0 and y>0:
+#         print(f"1-ая четверть") 
 
-    elif x<0 and y<0: 
-        print(f"3-ая четверть")    
+#     elif x<0 and y<0: 
+#         print(f"3-ая четверть")    
     
-else:
-    print('Введите X ≠ 0 и Y ≠ 0')
+# else:
+#     print('Введите X ≠ 0 и Y ≠ 0')
 
 #____________________________________________________________
 #Напишите программу, которая по заданному номеру четверти,
@@ -70,12 +70,12 @@ else:
 
 #____________________________________________________________
 # Напишите программу для. проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат.
-# print (f'x\t y\t z\t result')
-# print ('_' * 40)
-# for x in [True, False]:
-#     for y in [True, False]:
-#         for z in [True, False]:
-#             print (f'{x}\t {y}\t {z}\t {not(x or y or z) == (not x and not y and not z)}')
+print (f'x\t y\t z\t result')
+print ('_' * 40)
+for x in [True, False]:
+    for y in [True, False]:
+        for z in [True, False]:
+            print (f'{x}\t {y}\t {z}\t {not(x or y or z) == (not x and not y and not z)}')
 
 
 
