@@ -82,16 +82,16 @@
 #         rez = False        
 # print (rez)
 
-dictionary = \
-{
- 'up': '↑',
- 'left': '←',
- 'down': '↓',
- 'right': '→'
- }
+# dictionary = \
+# {
+#  'up': '↑',
+#  'left': '←',
+#  'down': '↓',
+#  'right': '→'
+#  }
  
-for i in dictionary: # for (k,v) in dictionary.items():
-    print('{}: {}'.format(i, dictionary[i]))
+# for i in dictionary: # for (k,v) in dictionary.items():
+#     print('{}: {}'.format(i, dictionary[i]))
 
 # print('Введите строку состоящую из чисел') #!!! Ввод через ПРОБЕЛ
 # stroka = input().split()
@@ -127,3 +127,40 @@ for i in dictionary: # for (k,v) in dictionary.items():
 # for idx in index:
 #     rez = rez*spisok[idx]
 # print(f'Произведение = {rez}')
+
+# def parse(s):
+#     result = []
+#     digit = ""
+#     for symbol in s:
+#         if symbol.isdigit(): # идем посимвольно
+#             digit += symbol
+#         else:
+#             result.append(int(digit)) #если не число добавляем
+#             digit = ""
+#             result.append(symbol)
+#     else:
+#         if digit:
+#             result.append(int(digit))
+#     return result
+
+# s = "12+3*10+2/2"
+# result = parse(s)
+
+# print(result)
+
+def find_unique(data):
+    result = []
+    results_new = []
+    for el in data:         #Сравниваем переданный список, с двумя созданными
+#1 # Идем по элментам, пока (if) новые добавляем в оба созд-х списка (пройдем все эл-ты)
+#2 #Проверка № 2 Если (elif) элемент  в списке куыгде уже есть – удаляем дубль
+        if el not in result and el not in results_new:
+            result.append(el)
+            results_new.append(el)
+        elif el in result: 
+            result.remove(el)
+
+    print(results_new)
+    return sorted(result)
+   
+print(find_unique([1, 2, 3, 5, 1, 5, 3, 10] ))

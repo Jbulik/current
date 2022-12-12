@@ -54,22 +54,37 @@
 # 2) {последнее слагаемое, рандом} '= 0' 
 # Идем с конца. 
 
-from random import randint
+# from random import randint
 
-k = int(input('Введите степень многочлена:  '))
-for i in range(k, 0, -1):
-    kof = randint(1,100)
-    if kof == 1: # ничего не добавляем
-        kof = '' 
-    else:
-        if i != 1: # bx^4+
-            part = f'{kof} * x^{i} + ' 
+# k = int(input('Введите степень многочлена:  '))
+# for i in range(k, 0, -1):
+#     kof = randint(1,100)
+#     if kof == 1: # ничего не добавляем
+#         kof = '' 
+#     else:
+#         if i != 1: # bx^4+
+#             part = f'{kof} * x^{i} + ' 
 
-        else: 
-            part = f'{kof} * x + ' # ex // число без k
-    print(part, end= '') # выводим 2*x² + 4*x +
-print(f'{randint(1,101)} = 0') #доклеиваем   5 = 0 
+#         else: 
+#             part = f'{kof} * x + ' # ex // число без k, когда k=1
+#     print(part, end= '') # выводим 2*x² + 4*x +
+# print(f'{randint(1,101)} = 0') #доклеиваем   5 = 0 
 
+
+
+def check_input_number(my_num):
+    while my_num.isdigit() == False:    
+             
+        my_num=input('Опечаталась, бывает..  ')
+    else:  
+        #задаем условие, если 1-ый while не срабатывает 
+        while int(my_num)<0 or int(my_num)>28:  
+           my_num=int(input('Промахнулась, бывает..  '))
+    return int(my_num)          
+        
+my_num=input('ввод') 
+print(check_input_number(my_num))
+print(type(my_num))
 
 
     
