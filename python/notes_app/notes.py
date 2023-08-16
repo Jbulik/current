@@ -7,18 +7,24 @@ DATA_FILE = "notes.json"
 
 
 def load_notes():
+    """Функция загрузки данных заметок из файла"""
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, "r") as file:
             return json.load(file)
     return []
 
 
+
+# Функция принимает список заметок как аргумент и записывает его в файл в формате JSON
 def save_notes(notes):
+    """Функция для загрузки данных заметок в файл"""
     with open(DATA_FILE, "w") as file:
         json.dump(notes, file, indent=4)
 
 
+# обновляет id, добавляет текущую дату/время и затем сохраняет обновленный список заметок в файл
 def add_note(title, body):
+    """Функция для обавления новой заметку в список заметок"""
     notes = load_notes()
     note_id = len(notes) + 1
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -33,7 +39,9 @@ def add_note(title, body):
     print("Заметка успешно добавлена")
 
 
+# выводит информацию о каждой заметке по указанной Дате
 def list_notes(filter_date=None):
+    """Функция для поиска заметок"""
     notes = load_notes()
     if filter_date:
         filtered_notes = [note for note in notes if filter_date in note["timestamp"]]
@@ -48,37 +56,24 @@ def list_notes(filter_date=None):
         print("Заметок не найдено")
 
 
-# def edit_note(note_id, new_title, new_body):
-#     notes = load_notes()
-#     for note in notes:
-#         if note["id"] == note_id:
-#             note["title"] = new_title
-#             note["body"] = new_body
-#             note["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-#             save_notes(notes)
-#             print("Заметка успешно отредактирована")
-#             return
-#         else:
-#             print("Заметка с данным ID не найдена")
+print("Заметка с данным ID не найдена")
 
 def edit_note(note_id, new_title, new_body):
+    """Функция для редактирования заметок"""
     notes = load_notes()
-    #note_found = False
     for note in notes:
-        if note["id"] != note_id:
-            print("Заметка с данным ID не найдена")
-            return
-        else:
+        if note["id"] == note_id:
             note["title"] = new_title
             note["body"] = new_body
             note["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             save_notes(notes)
             print("Заметка успешно отредактирована")
             return
-
+    print("Заметка с данным ID не найдена")
 
 
 def delete_note(note_id):
+    """Функция для удаления заметок"""
     notes = load_notes()
     notes = [note for note in notes if note["id"] != note_id]
     save_notes(notes)
@@ -86,6 +81,7 @@ def delete_note(note_id):
 
 
 def main():
+    """Функция с меню для выбора действия в консоли"""
     while True:
         print("Выберите действие:")
         print("1. Добавить заметку")
