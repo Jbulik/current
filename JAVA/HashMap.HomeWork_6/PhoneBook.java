@@ -1,3 +1,8 @@
+// Задание Реализуйте структуру телефонной книги с помощью HashMap.
+//Программа также должна учитывать, что в во входной структуре будут повторяющиеся имена с разными телефонами,
+// их необходимо считать, как одного человека с разными телефонами.
+// Вывод должен быть отсортирован по убыванию числа телефонов.
+
 import java.util.*;
 
 public class PhoneBook {
@@ -5,7 +10,7 @@ public class PhoneBook {
         // Создаем телефонную книгу с помощью HashMap
         Map<String, Set<String>> phoneBook = new HashMap<>();
 
-        // Пример заполнения телефонной книги
+        // заполненяем телефонную книгу
         addContact(phoneBook, "Иванов", "1234567890");
         addContact(phoneBook, "Петров", "9876543210");
         addContact(phoneBook, "Иванов", "5555555555");
@@ -13,8 +18,11 @@ public class PhoneBook {
         addContact(phoneBook, "Петров", "9999999999");
         addContact(phoneBook, "Сидоров", "2222222222");
         addContact(phoneBook, "Иванов", "8888888888");
+        addContact(phoneBook, "Иванов", "15615615615");
+        addContact(phoneBook, "Иванов", "3333333333");
+        addContact(phoneBook, "Петров", "8888888888");
 
-        // Сортируем записи по убыванию числа телефонов
+        // Сортируем по убыванию числа телефонов
         List<Map.Entry<String, Set<String>>> sortedEntries = new ArrayList<>(phoneBook.entrySet());
         sortedEntries.sort((entry1, entry2) -> Integer.compare(entry2.getValue().size(), entry1.getValue().size()));
 
@@ -41,3 +49,7 @@ public class PhoneBook {
         }
     }
 }
+
+
+
+
